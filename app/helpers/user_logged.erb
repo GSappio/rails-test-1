@@ -1,0 +1,5 @@
+module ApplicationHelper
+  def current_user_name
+    current_user.name if current_user
+  end
+end
