@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_130235) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_06_155441) do
   create_table "comments", force: :cascade do |t|
-    t.text "name"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "vehicle_id", null: false
+    t.index ["vehicle_id"], name: "index_comments_on_vehicle_id"
   end
 
   create_table "tutorials", force: :cascade do |t|
@@ -23,4 +25,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_130235) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "vehicles", force: :cascade do |t|
+    t.string "manofature"
+    t.string "model"
+    t.string "color"
+    t.string "fuel"
+    t.string "transmission"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "comments", "vehicles"
 end

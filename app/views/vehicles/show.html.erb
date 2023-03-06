@@ -1,0 +1,29 @@
+<div id="show-function">
+  <p style="color: green"><%= notice %></p>
+
+  <%= render @vehicle %>
+
+<div>
+  <%= link_to "Edit this vehicle", edit_vehicle_path(@vehicle) %> |
+  <%= link_to "Back to vehicles", vehicles_path %>
+
+  <%= button_to "Destroy this vehicle", @vehicle, method: :delete %>
+</div>
+
+<div id="comments">
+  <% @vehicle.comments.each do |comment|%>
+
+    <span> <%= comment.description%> </span>
+  <%end%>
+</div>
+   
+
+
+<!-- app/views/chat/index.html.erb -->
+<div>
+  <textarea id="input"></textarea>
+  <button id="button">enviar</button>
+</div>
+<div id="chat"></div>
+</div>
+</div>
