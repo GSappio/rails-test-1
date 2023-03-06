@@ -1,22 +1,52 @@
 <div id="<%= dom_id vehicle %>">
-  <p>
-    <strong>Manofature:</strong>
-    <%= vehicle.manofature %>
-  </p>
 
-  <p>
-    <strong>Fuel:</strong>
-    <%= vehicle.fuel %>
-  </p>
+<h1>lista de veiculos</h1>
+<div id="table">
+<th> <strong>nome:</strong> </th>
+<th> <strong>Modelo:</strong> </th>
+<th> <strong>Marca:</strong> </th>
+<th> <strong>cor:</strong> </th>
+<th> <strong>transmissao:</strong> </th>
+<th> <strong>combustível:</strong> </th>
+<th> <strong>preco:</strong> </th>
 
-  <p>
-    <strong>Model:</strong>
+<td>
+<%= vehicle.name %>
+<button onclick=""> editar nome </button>
+</td>
+
+  <td>
     <%= vehicle.model %>
-  </p>
+    <button onclick=""> editar </button>
+  </td>
 
-  <p>
-    <strong>Transmission:</strong>
-    <%= vehicle.transmission %>
-  </p>
+  <td>
+  <%= vehicle.manofature %>
+  <button onclick=""> editar </button>
+</td>
+
+<td>
+<%= vehicle.color %>
+<button onclick=""> editar </button>
+</td>
+
+<td>
+  <%= vehicle.transmission %>
+  <button onclick=""> editar </button>
+</td>
+
+  <td>
+    <%= vehicle.fuel %>
+
+    <button onclick=""> editar </button>
+  </td>
+
+  <td>
+    <%= vehicle.price %>
+
+    <button onclick=""> alterar preco </button>
+  </td>
+
+</div>
 
 </div>

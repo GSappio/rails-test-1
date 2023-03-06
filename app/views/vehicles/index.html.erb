@@ -1,14 +1,50 @@
-<p style="color: green"><%= notice %></p>
+<p><%= notice %></p>
 
 <h1>Vehicles</h1>
 
 <div id="vehicles">
+
+<h1>lista de veiculos</h1>
+
+<div id="table">
+<th> <strong>Modelo:</strong> </th>
+<th> <strong>Marca:</strong> </th>
+<th> <strong>cor:</strong> </th>
+<th> <strong>transmissao:</strong> </th>
+<th> <strong>combustível:</strong> </th>
+
   <% @vehicles.each do |vehicle| %>
-    <%= render vehicle %>
-    <p>
-      <%= link_to "Show this vehicle", vehicle %>
-    </p>
-  <% end %>
-</div>
+  
+    <td>
+    <%= vehicle.model %>
+    <button onclick=""> editar modelo </button>
+  </td>
+
+  <td>
+  <%= vehicle.manofature %>
+  <button onclick=""> editar marca </button>
+</td>
+
+<td>
+<%= vehicle.color %>
+<button onclick=""> editar cor </button>
+</td>
+
+<td>
+  <%= vehicle.transmission %>
+  <button onclick=""> editar transmissao </button>
+</td>
+
+  <td>
+    <%= vehicle.fuel %>
+
+    <button onclick=""> editar combustível </button>
+  </td>
+
+
 
 <%= link_to "New vehicle", new_vehicle_path %>
+<% end %>
+</div>
+
+

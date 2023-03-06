@@ -1,0 +1,2 @@
+class VehicleList < ApplicationRecord
+end
