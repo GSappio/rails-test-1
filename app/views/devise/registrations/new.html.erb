@@ -31,9 +31,15 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <%= f.file_field :avatar %>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
+
 <% end %>
+
+  <!-- outros campos do formulário -->
+
 
 <%= render "devise/shared/links" %>

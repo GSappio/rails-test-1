@@ -30,7 +30,20 @@
     position: relative;    
     top: 0;
     width: 100%;
-     
+    
+    #img-user {
+        border: 1px solid red;
+        width: 60px;
+        height: 100%;
+        position: absolute;
+        right: 220px;
+    }
+
+    #btn-modal {
+        position: absolute;
+        height: 100%;
+    }
+
     #user-modal .modal-dialog {
         max-width: 400px;
       }
@@ -90,9 +103,7 @@
             background-color: #8d7ae0;
         }
         
-        
     }
-
 }
 
 .container-footer {
@@ -130,24 +141,6 @@
     text-align: center;
     align-items: center;
 
-}
-
-#btn-modal {
-    height: 100%;
-    width: 100%;
-    border-radius: 0px;
-}
-
-#btn-alter-form {
-    width: 100%;
-}
-
-#act-btn-modal {
-    width: 50%;
-}
-
-#cancel-btn-modal {
-    width: 50%;
 }
 
 #defaultModal {

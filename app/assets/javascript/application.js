@@ -24,5 +24,9 @@ $(function() {
     })
 })
 
-
-
+  $(function() {
+        $("#btn-alter-form").on("click", function() {
+        $("#defaultModal").hide();
+        $("#defaultModal").removeClass('show');
+      })
+  })
