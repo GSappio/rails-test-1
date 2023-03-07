@@ -18,6 +18,7 @@ class VehiclesTest < ApplicationSystemTestCase
     fill_in "Manofature", with: @vehicle.manofature
     fill_in "Model", with: @vehicle.model
     fill_in "Transmission", with: @vehicle.transmission
+    fill_in "color", with: @vehicle.color
     click_on "Create Vehicle"
 
     assert_text "Vehicle was successfully created"
@@ -32,6 +33,7 @@ class VehiclesTest < ApplicationSystemTestCase
     fill_in "Manofature", with: @vehicle.manofature
     fill_in "Model", with: @vehicle.model
     fill_in "Transmission", with: @vehicle.transmission
+    fill_in "color", with: @vehicle.color
     click_on "Update Vehicle"
 
     assert_text "Vehicle was successfully updated"

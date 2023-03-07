@@ -1,52 +1,33 @@
-<div id="<%= dom_id vehicle %>">
+<p><%= notice %></p>
 
-<h1>lista de veiculos</h1>
-<div id="table">
-<th> <strong>nome:</strong> </th>
-<th> <strong>Modelo:</strong> </th>
-<th> <strong>Marca:</strong> </th>
-<th> <strong>cor:</strong> </th>
-<th> <strong>transmissao:</strong> </th>
-<th> <strong>combustível:</strong> </th>
-<th> <strong>preco:</strong> </th>
+<h1>Listing Vehicles</h1>
+<table>
+  <thead>
+    <tr>
+      <th>|Manufacturer|</th>
+      <th>--Model--|</th>
+      <th>--Color--|</th>
+      <th>--Fuel-|</th>
+      <th>Transmission|</th>
+      <th>--Price--|</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
 
-<td>
-<%= vehicle.name %>
-<button onclick=""> editar nome </button>
-</td>
+      <tr>
+        <td><%= vehicle.manofature %></td>
+      
+        <td class="model"><%= vehicle.model %></td>
+        <td><%= vehicle.color %></td>
+        <td><%= vehicle.fuel %></td>
+        <td><%= vehicle.transmission %></td>
+        <td><%= vehicle.price %></td>
+        
+       
+      </tr>
+    
 
-  <td>
-    <%= vehicle.model %>
-    <button onclick=""> editar </button>
-  </td>
-
-  <td>
-  <%= vehicle.manofature %>
-  <button onclick=""> editar </button>
-</td>
-
-<td>
-<%= vehicle.color %>
-<button onclick=""> editar </button>
-</td>
-
-<td>
-  <%= vehicle.transmission %>
-  <button onclick=""> editar </button>
-</td>
-
-  <td>
-    <%= vehicle.fuel %>
-
-    <button onclick=""> editar </button>
-  </td>
-
-  <td>
-    <%= vehicle.price %>
-
-    <button onclick=""> alterar preco </button>
-  </td>
-
-</div>
-
-</div>
+  </tbody>
+</table>
+</br>   </br>   </br>

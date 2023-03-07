@@ -1,50 +1,72 @@
-<p><%= notice %></p>
+<%= stylesheet_link_tag 'vehicles' %>
 
 <h1>Vehicles</h1>
-
-<div id="vehicles">
-
-<h1>lista de veiculos</h1>
-
-<div id="table">
-<th> <strong>Modelo:</strong> </th>
-<th> <strong>Marca:</strong> </th>
-<th> <strong>cor:</strong> </th>
-<th> <strong>transmissao:</strong> </th>
-<th> <strong>combustível:</strong> </th>
-
-  <% @vehicles.each do |vehicle| %>
-  
-    <td>
-    <%= vehicle.model %>
-    <button onclick=""> editar modelo </button>
-  </td>
-
-  <td>
-  <%= vehicle.manofature %>
-  <button onclick=""> editar marca </button>
-</td>
-
-<td>
-<%= vehicle.color %>
-<button onclick=""> editar cor </button>
-</td>
-
-<td>
-  <%= vehicle.transmission %>
-  <button onclick=""> editar transmissao </button>
-</td>
-
-  <td>
-    <%= vehicle.fuel %>
-
-    <button onclick=""> editar combustível </button>
-  </td>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>|Model|</th>
+          <th>Manufacturer|</th>
+          <th>Price|</th>
+          <th>Actions|</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @vehicles.each do |vehicle| %>
+          <tr>
+            <td><%= vehicle.model %>  </td>
+            <td><%= vehicle.manofature %></td>
+            <td>R$<%= vehicle.price %></td>
+            <td>
+              <%= button_to "Delete", vehicle_path(vehicle), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
+             
+              <%= link_to 'Show', vehicle_path(vehicle), class: 'btn btn-primary show-vehicle',  id: vehicle.id, data: { id: vehicle.id } %>
+            </br>
+           
 
 
+            
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
 
-<%= link_to "New vehicle", new_vehicle_path %>
-<% end %>
+  <div class="hidden-input" id="id-vehicle">
+  <label for="vehicle-id">id:</label>
+  <input type="text" class="form-control" id="vehicle-id" disabled>
+</div>
+
+    <div class="hidden-input" id="model-vehicle">
+      <label for="vehicle-model">Model:</label>
+      <input type="text" class="form-control" id="vehicle-model" disabled>
+    </div>
+    <div class="hidden-input" id="manufacturer-vehicle">
+      <label for="vehicle-manufacturer">Manufacturer:</label>
+      <input type="text" class="form-control " id="vehicle-manufacturer" disabled>
+    </div>
+    <div class="hidden-input" id="color-vehicle">
+      <label for="vehicle-color">Color:</label>
+      <input type="text" class="form-control" id="vehicle-color" disabled>
+    </div>
+    <div class="hidden-input" id="fuel-vehicle">
+      <label for="vehicle-fuel">Fuel:</label>
+      <input type="text" class="form-control" id="vehicle-fuel" disabled>
+    </div>
+    <div class="hidden-input" id="transmission-vehicle">
+      <label for="vehicle-transmission">Transmission:</label>
+      <input type="text" class="form-control" id="vehicle-transmission" disabled>
+    
+    </div>
+    <button class="save-vehicle" style="display: none;">Save</button>
+    <button class="btn btn-primary edit-vehicle" style="display: none;">Edit</button>
+  </div>
 </div>
 
 
+      <%= javascript_include_tag 'application' %>

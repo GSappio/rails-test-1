@@ -3,11 +3,16 @@ namespace :generate_vehicle do
   desc "Gera 5 veículos com marca, modelo, cor, combustível e transmissão"
   task generate_vehicles: :environment do
     5.times do
+
+      Vehicle.create(
+      name = Faker::Vehicle.make
       manofature = Faker::Vehicle.make
       model = Faker::Vehicle.model(make_of_model: manofature)
       color = Faker::Vehicle.color
       fuel = Faker::Vehicle.fuel_type
       transmission = Faker::Vehicle.transmission
+      )
+    end
       puts "Veículo gerado:"
       puts "nome: #{manofature}"
       puts "Modelo: #{model}"
