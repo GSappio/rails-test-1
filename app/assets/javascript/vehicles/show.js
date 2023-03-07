@@ -1,5 +1,5 @@
 (function () {
-  console.log(document.getElementById("show-function"));
+  console.log(document.getElementById("show-vehicles-function"));
   console.log(postComment);
 
   function postComment(data) {
@@ -23,10 +23,10 @@
   }
 
   $(document).on("ready", () => {
-    if (!document.getElementById("show-function")) return;
+    if (!document.getElementById("show-vehicles-function")) return;
     init();
     console.log("function loaded");
-    console.log(document.getElementById("show-function"));
+    console.log(document.getElementById("show-vehicles-function"));
   });
 
   function save(description) {

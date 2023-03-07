@@ -1,0 +1,28 @@
+ <form class="bg-white rounded px-8 pt-6 pb-8 mb-4">
+    <% if current_user.present? %>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="firstname">
+        Primeiro nome
+      </label>
+  
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Digite o primeiro nome" value="<%= current_user.first_name %>" >
+
+     </div>
+   
+    <div class="mb-6">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="lastname">
+        Segundo nome
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Digite o segundo nome" value="<%= current_user.last_name %>" >
+    </div> 
+    <%end%>
+   
+
+    <div class="flex items-center justify-between">
+      <button id="btn-alter-form" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+        Alterar
+      </button>
+    </div>
+  </form>
+   
+ 

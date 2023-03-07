@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag 'application' %>
@@ -12,6 +13,19 @@
   </head>
 
   <body> 
-    <%= yield %>
+     <%= render 'layouts/navbar' %>
+      <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+      <div class="card-container">
+          <div class="card-main">
+            <%= yield %>
+          </div>
+      </div>
+      <%= render 'layouts/modal' %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

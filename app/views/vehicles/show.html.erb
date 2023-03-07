@@ -1,4 +1,4 @@
-<div id="show-function">
+<div id="show-vehicles-function"  >
   <p style="color: green"><%= notice %></p>
 
   <%= render @vehicle %>
@@ -13,7 +13,7 @@
 <div id="comments">
   <% @vehicle.comments.each do |comment|%>
 
-    <span> <%= comment.description%> </span>
+    <span>  <%=comment.description%> </span>
   <%end%>
 </div>
    
@@ -21,9 +21,10 @@
 
 <!-- app/views/chat/index.html.erb -->
 <div>
-  <textarea id="input"></textarea>
+  <textarea id="input" placeholder="Escreva um comentário" cols="30" rows="5"></textarea>
   <button id="button">enviar</button>
 </div>
 <div id="chat"></div>
 </div>
 </div>
+
