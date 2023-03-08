@@ -1,22 +1,18 @@
-<div id="<%= dom_id vehicle %>">
-  <p>
-    <strong>Manofature:</strong>
-    <%= vehicle.manofature %>
-  </p>
+<div id="<%= dom_id vehicle %> " class="my-8" >
 
-  <p>
-    <strong>Fuel:</strong>
-    <%= vehicle.fuel %>
-  </p>
+    <p class="text-black my-3 text-lg" ><strong>information about the car...</strong></p>
 
-  <p>
-    <strong>Model:</strong>
-    <%= vehicle.model %>
-  </p>
+    <input type="text" id="disabled-input" aria-label="disabled input"  class="mb-3 bg-gray-100 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.0  dark:bg-blue-500 dark:border-gray-600 dark:placeholder-gray-400 font-bold dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500 hover:bg-blue-700" value= "Manofature: <%=vehicle.manofature%>" disabled readonly>
 
-  <p>
-    <strong>Transmission:</strong>
-    <%= vehicle.transmission %>
-  </p>
+    <input type="text" id="disabled-input" aria-label="disabled input" class="mb-3 bg-gray-100 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.0 dark:bg-blue-500 dark:border-gray-600 dark:placeholder-gray-400 font-bold dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500 hover:bg-blue-700" value= "Fuel:  <%= vehicle.fuel %>" disabled>
 
+    <input type="text" id="disabled-input" aria-label="disabled input" class="mb-3 bg-gray-100 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.0 dark:bg-blue-500 dark:border-gray-600 dark:placeholder-gray-400 font-bold dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500 hover:bg-blue-700" value= "Model: <%= vehicle.model %>" disabled>
+
+    <input type="text" id="disabled-input" aria-label="disabled input" class="mb-3 bg-gray-100 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.0 dark:bg-blue-500 dark:border-gray-600 dark:placeholder-gray-400 font-bold dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500 hover:bg-blue-700" value= "Transmission: <%= vehicle.transmission %>" disabled>
+  <div>
+      <%= link_to "Edit this vehicle", edit_vehicle_path(@vehicle), class:"text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" %> 
+      <%= link_to "Back to vehicles", vehicles_path, class:"text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" %> 
+
+      <%= link_to "Destroy this vehicle", @vehicle, method: :delete, class:"text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" %>
+  </div>
 </div>
