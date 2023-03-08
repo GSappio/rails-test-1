@@ -1,72 +1,80 @@
 <%= stylesheet_link_tag 'vehicles' %>
 
-<h1>Vehicles</h1>
-<div class="row">
+<header>
+<h1 class="title">Vehicles</h1>
+</header>
+
+<div class="container">
+<div class="image"></div>
+<div class="smoke"></div>
   <div class="col-md-12">
-    <table class="table">
+  </br>
+    <table class="table-centered">
       <thead>
         <tr>
-          <th>|Model|</th>
-          <th>Manufacturer|</th>
-          <th>Price|</th>
-          <th>Actions|</th>
+          <th>Model</th>
+          <th>Manufacturer</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         <% @vehicles.each do |vehicle| %>
           <tr>
             <td><%= vehicle.model %>  </td>
-            <td><%= vehicle.manofature %></td>
-            <td>R$<%= vehicle.price %></td>
+
+            <td><%= vehicle.manofature%>  </td>
+  
             <td>
-              <%= button_to "Delete", vehicle_path(vehicle), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
-             
-              <%= link_to 'Show', vehicle_path(vehicle), class: 'btn btn-primary show-vehicle',  id: vehicle.id, data: { id: vehicle.id } %>
-            </br>
-           
+            <div class="button-container">
+             <%= button_to 'Show', vehicle_path(vehicle), class: 'btn btn-primary show-vehicle',  id: vehicle.id, data: { id: vehicle.id } %>
 
-
-            
+            <%= button_to "Delete", vehicle_path(vehicle), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger" %>
+              </br>
+           </div>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
+
+
+<div class="form">
+
+  <button id="new-vehicle-btn">New</button>
+
+  <div class="hidden-input" id="model-vehicle">
+
+   <label for="vehicle-model">model:</label>
+   <input type="text" class="form-control" id="vehicle-model" disabled>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
 
-  <div class="hidden-input" id="id-vehicle">
-  <label for="vehicle-id">id:</label>
-  <input type="text" class="form-control" id="vehicle-id" disabled>
-</div>
-
-    <div class="hidden-input" id="model-vehicle">
-      <label for="vehicle-model">Model:</label>
-      <input type="text" class="form-control" id="vehicle-model" disabled>
-    </div>
     <div class="hidden-input" id="manufacturer-vehicle">
       <label for="vehicle-manufacturer">Manufacturer:</label>
       <input type="text" class="form-control " id="vehicle-manufacturer" disabled>
     </div>
+
     <div class="hidden-input" id="color-vehicle">
       <label for="vehicle-color">Color:</label>
       <input type="text" class="form-control" id="vehicle-color" disabled>
     </div>
+
     <div class="hidden-input" id="fuel-vehicle">
       <label for="vehicle-fuel">Fuel:</label>
       <input type="text" class="form-control" id="vehicle-fuel" disabled>
     </div>
+
     <div class="hidden-input" id="transmission-vehicle">
       <label for="vehicle-transmission">Transmission:</label>
       <input type="text" class="form-control" id="vehicle-transmission" disabled>
-    
+        </br>
     </div>
+
     <button class="save-vehicle" style="display: none;">Save</button>
     <button class="btn btn-primary edit-vehicle" style="display: none;">Edit</button>
-  </div>
+    <button id="create-btn" style="display:none">Create</button>
+  
 </div>
-
-
-      <%= javascript_include_tag 'application' %>
+  </br>
+</div>
+</div>
+ <%= javascript_include_tag 'application' %>

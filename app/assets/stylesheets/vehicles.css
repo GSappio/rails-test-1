@@ -1,3 +1,169 @@
+body{
+  animation: back 50s linear infinite;
+
+}
+
+header{
+  background-color: #1e1980;
+  position:relative;
+  height: 70px;
+  width: 101.4%;
+  top: -25px;
+  left: -15px;
+
+  text-align: center;
+  color: #fff;
+}
+
+.title{
+  position: relative;
+top: 20%;
+}
+
+.image{
+  background-image: url('/assets/wallpaper.png' );
+   background-size: cover;
+  background-position: center;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 0;
+  left: 60%;
+
+}
+
+.smoke{
+  background-image: url('/assets/smoke.png' );
+   background-size: cover;
+  background-position: center;
+  position: fixed;
+  height: 110vh;
+  top: -145px;
+  width: 100%;
+  z-index: -999;
+  left: 27%;
+
+}
+.button-container {
+  white-space: nowrap;
+}
+
+.btn {
+  display: inline;
+  margin-right: 5px;
+}
+
+
 .hidden-input {
     display: none;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100px;
   }
+
+  .table-centered {
+    position: relative;
+    max-width: 800px;
+    padding: 10px;
+    top: -20px;
+    text-align: center;
+    
+  }
+
+
+  .container{
+    position: relative;
+    background-color: #ffffff;
+    width: 350px;
+    height: 785px;
+    border-radius: 1ch;
+    border: solid rgb(15, 8, 78);
+    top: -20px
+   
+  }
+
+  button{
+    background-color: #5652af;
+    border-radius: 1ch;
+  }
+
+  button:hover{
+    animation: button 200s linear infinite;
+
+  }
+
+  .form{
+    justify-content: center;
+    text-align: center;
+    background-color: #e2e2e2;
+    display: grid;
+    border-radius: 1ch;
+    border: solid rgb(15, 8, 78);
+    width: 352px;
+    position: relative;
+    left: -3px;
+    top: 40px;
+  }
+  input{
+    position: relative;
+    left: -50%;
+  }
+ 
+ 
+
+  @keyframes  button {
+    0% {
+      background-color: #5652af;
+    }
+    0.2% {
+     background-color: rgb(34, 0, 224);
+     color:#e2e2e2;
+    }
+    90% {
+      background-color: rgb(34, 0, 224);
+      color:#e2e2e2;
+     }
+    100% {
+      background-color: #5652af;
+      color:#000000;
+    }
+  }
+  
+
+ 
+  
+  
+  
+  
+  @keyframes  back {
+    0% {
+      background-color: #f8e15c;
+
+      
+    }
+    25% {
+      background-color: #e6e478;
+      
+      
+    
+    }
+    50% {
+      background-color: #fff;
+     
+      
+    
+    }
+    75% {
+      background-color: #bba15b;
+    
+    }
+
+    100% {
+      background-color: #d1b01f;
+     
+      
+     
+    }
+  }
+  

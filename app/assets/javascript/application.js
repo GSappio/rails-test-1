@@ -2,145 +2,136 @@
 //= require jquery_ujs
 //= require_tree .
 
-
-
-//obs: costuma se iniciar a applicacao ajax da seguinte maneira
-
-//$(document).ready(function() {
-//
-//  $.ajax{
-//       }
-//                            }
 var selectedVehicleId;
+var model = $("#vehicle-model").val();
+var manufacturer = $("#vehicle-manufacturer").val();
+var color = $("#vehicle-color").val();
+var fuel = $("#vehicle-fuel").val();
+var transmission = $("#vehicle-transmission").val();
 
-  $(document).on('click', '.show-vehicle', function(e) {
-    e.preventDefault();
-      //clicar no botao que contenha  a class "show-vehicle" acionará esse comando
- 
-  
-    var id = e.target.id;
-    var url = "/vehicles/" + id;
-    selectedVehicleId = $(this).closest('tr').data('vehicle-id');
+var vehicle = {
+  model: model,
+  manufacturer: manufacturer,
+  color: color,
+  fuel: fuel,
+  transmission: transmission,
+};
 
+$(document).on("click", ".show-vehicle", function (e) {
+  e.preventDefault();
 
-    $.ajax({
-      url: url,
-      method: "GET",
-      dataType: "json",
-      success: function(data) {
-        $("#vehicle-model").val(data.model); //pega os vaores do veiculo selecionado com json nos inputs
-        $("#vehicle-manufacturer").val(data.manofature);
-        $("#vehicle-color").val(data.color);
-        $("#vehicle-fuel").val(data.fuel);
-        $("#vehicle-transmission").val(data.transmission);
-        $("#vehicle-id").val(data.id);
-       
-        $('.edit-vehicle').show();
+  var id = e.target.id;
+  var url = "/vehicles/" + id;
+  selectedVehicleId = $(this).closest("tr").data("vehicle-id");
 
-        $("#model-vehicle").show(); // exibe os inputs especificados
-        $("#manufacturer-vehicle").show();
-        $("#color-vehicle").show();
-        $("#fuel-vehicle").show();
-        $("#transmission-vehicle").show();
-        $("#price-vehicle").show();
+  $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+    success: function (data) {
+      $("#vehicle-model").val(data.model); //pega os vaores do veiculo selecionado com json nos inputs
+      $("#vehicle-manufacturer").val(data.manofature);
+      $("#vehicle-color").val(data.color);
+      $("#vehicle-fuel").val(data.fuel);
+      $("#vehicle-transmission").val(data.transmission);
 
-        $("#vehicle-model").prop('disabled', true); // deixa os inputs não editaveis
-        $("#vehicle-manufacturer").prop('disabled', true);
-        $("#vehicle-color").prop('disabled', true);
-        $("#vehicle-fuel").prop('disabled', true);
-        $("#vehicle-transmission").prop('disabled', true);
-        $("#vehicle-id").prop('disabled', true);
+      $(".edit-vehicle").show();
 
-        $('.save-vehicle').hide();
-        
-        $( ".save-vehicle").attr('id', id)
+      $("div").show();
 
-      }
-    });
+      $(".form-control").prop("disabled", true); // deixa os inputs não editaveis
+
+      $(".save-vehicle").hide();
+
+      $(".save-vehicle").attr("id", id);
+    },
   });
+});
 
-  
+$(document).on("click", "#new-vehicle-btn", function () {
+  $("div").show();
 
-  
-  $(document).on('click', '.edit-vehicle', function(e) {
-    
+  $(".form-control").removeAttr("disabled"); // deixa os inputs  editaveis
 
-    $("#model-vehicle").show(); // exibe os inputs especificados
-    $("#manufacturer-vehicle").show();
-    $("#color-vehicle").show();
-    $("#fuel-vehicle").show();
-    $("#transmission-vehicle").show();
-    $("#price-vehicle").show();
+  $(".form-control").val("");
 
+  $("#create-btn").show();
+  $(".edit-vehicle").hide();
+});
 
-    $("#vehicle-model").removeAttr('disabled'); // deixa os inputs  editaveis
-    $("#vehicle-manufacturer").removeAttr('disabled');
-    $("#vehicle-color").removeAttr('disabled');
-    $("#vehicle-fuel").removeAttr('disabled');
-    $("#vehicle-transmission").removeAttr('disabled');
+$(document).on("click", ".edit-vehicle", function (e) {
+  $("div").show();
 
-    $('.save-vehicle').show();
-    $('.edit-vehicle').hide();
-  
-  })
+  $(".form-control").removeAttr("disabled"); // deixa os inputs  editaveis
 
+  $(".save-vehicle").show();
+  $(".edit-vehicle").hide();
+});
 
-
-
-  $(document).on('click', '.save-vehicle', function (e) {
-   // obter o ID do veículo a ser atualizado
-  var vehicleId = $("#vehicle-id").val();
-
-  // obter os valores atualizados dos inputs
-  var model = $("#vehicle-model").val();
-  var manufacturer = $("#vehicle-manufacturer").val();
-  var color = $("#vehicle-color").val();
-  var fuel = $("#vehicle-fuel").val();
-  var transmission = $("#vehicle-transmission").val();
-
-
-  // criar um objeto com os dados atualizados
-  var vehicle = {
-
-      model: model,
-      manufacturer: manufacturer,
-      color: color,
-      fuel: fuel,
-      transmission: transmission,
-
-      
-  
-    
-  };
-  console.log(vehicle)
-  console.log({vehicle})
-
+$(document).on("click", ".save-vehicle", function (e) {
   // fazer a requisição PUT para atualizar o veículo
   $.ajax({
     url: "/vehicles/" + e.target.id,
     type: "PUT",
-    data: {vehicle},
+    data: { vehicle },
     dataType: "json",
-    success: function(response) {
+    success: function (response) {
       // exibir uma mensagem de sucesso
       alert("Vehicle updated successfully");
 
-      $("#vehicle-model").prop('disabled', true); // deixa os inputs não editaveis
-      $("#vehicle-manufacturer").prop('disabled', true);
-      $("#vehicle-color").prop('disabled', true);
-      $("#vehicle-fuel").prop('disabled', true);
-      $("#vehicle-transmission").prop('disabled', true);
-
+      $(".form-control").prop("disabled", true); // deixa os inputs não editaveis
 
       // ocultar o botão "Save"
       $(".save-vehicle").hide();
 
       // exibir o botão "Edit"
       $(".edit-vehicle").show();
+
+      console.log(vehicle);
+      console.log({ vehicle });
     },
-    error: function(xhr, status, error) {
+
+    error: function (xhr, status, error) {
       // exibir uma mensagem de erro
       alert("Failed to update vehicle: " + error);
-    }
+    },
   });
-})
+});
+
+$(document).on("click", "#create-btn", function (e) {
+  e.preventDefault();
+  // enviar uma requisição AJAX para criar um novo registro
+  $.ajax({
+    url: "/vehicles",
+    method: "POST",
+    data: { vehicle },
+
+    success: function (response) {
+      // atualizar a tabela com o novo registro
+      $("#vehicle-table tbody").append(`
+        <tr>
+          <td>${response.id}</td>
+          <td>${response.model}</td>
+          <td>${response.manofature}</td>
+          <td>${response.color}</td>
+          <td>${response.fuel}</td>
+    
+          <td>
+            <a href="#" class="show-vehicle" data-id="${response.id}">Show</a>
+            <button class="edit-vehicle" data-id="${response.id}" style="display:none">Edit</button>
+            <button class="delete-vehicle" data-id="${response.id}" style="display:none">Delete</button>
+          </td>
+        </tr>
+      `);
+
+      // limpar os valores dos inputs
+      $(".form-control").val("");
+
+      // ocultar o botão "criar"
+      $("#create-btn").hide();
+    },
+    error: function () {
+      alert("Não foi possível criar um novo veículo");
+    },
+  });
+});
